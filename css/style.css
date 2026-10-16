@@ -602,11 +602,11 @@ input[type="search"]::-webkit-search-results-decoration {
 .profile {
   margin-top: 3.5rem;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 .profile .profile-content {
   width: 50%;
-  margin: 0 1.5rem 0 0;
+  margin: 0 0 0 1.5rem;
 }
 .profile .profile-content .profile-title {
   margin-top: 0;
@@ -651,6 +651,15 @@ input[type="search"]::-webkit-search-results-decoration {
   .profile .profile-image {
     width: 100%;
   }
+}
+.recent-updates {
+  margin-top: 3.5rem;
+}
+.recent-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 0.75rem;
 }
 .search-popup {
   visibility: hidden;
