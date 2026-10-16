@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Kabalts&#39;s Blog</title>
+  <title>bof | Kabalts&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="从零开始的pwnable.kr（3） bof 相关知识缓冲区溢出buffer_overflow 引发缓冲区溢出的原因是相关程序设计语言缺乏类型安全功能，出于效率的考虑，部分函数不对数组边界条件和函数指针引用等进行边界检查。 例如，C标准库中和字符串操作有关的函数，像 strcpy、strcat、sprintf、gets等函数中，数组和指针都没有自动进行边界检查。 常见的缓冲区溢出漏洞包括： 栈溢出">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kabalts&#39;s Blog">
+<meta property="og:title" content="bof">
 <meta property="og:url" content="https://kabalts.github.io/2026/10/16/bof/index.html">
 <meta property="og:site_name" content="Kabalts&#39;s Blog">
 <meta property="og:description" content="从零开始的pwnable.kr（3） bof 相关知识缓冲区溢出buffer_overflow 引发缓冲区溢出的原因是相关程序设计语言缺乏类型安全功能，出于效率的考虑，部分函数不对数组边界条件和函数指针引用等进行边界检查。 例如，C标准库中和字符串操作有关的函数，像 strcpy、strcat、sprintf、gets等函数中，数组和指针都没有自动进行边界检查。 常见的缓冲区溢出漏洞包括： 栈溢出">
 <meta property="og:locale">
 <meta property="article:published_time" content="2026-10-16T06:18:27.358Z">
-<meta property="article:modified_time" content="2026-05-06T13:46:16.250Z">
+<meta property="article:modified_time" content="2026-10-16T06:23:46.690Z">
 <meta property="article:author" content="kabalts">
+<meta property="article:tag" content="从零开始的pwnable.kr">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Kabalts's Blog" type="application/atom+xml">
@@ -82,6 +83,16 @@
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      bof
+    </h1>
+  
+
+      </header>
     
     <div class="e-content article-entry" itemprop="articleBody">
       
@@ -223,10 +234,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kabalts.github.io/2026/10/16/bof/" data-id="cmvakvh4g0000x4v749982nsy" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="https://kabalts.github.io/2026/10/16/bof/" data-id="cmval20810000pov71t9qhvv6" data-title="bof" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84pwnable-kr/" rel="tag">从零开始的pwnable.kr</a></li></ul>
+
     </footer>
   </div>
   
@@ -237,7 +250,7 @@
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          collision
         
       </div>
     </a>
@@ -262,9 +275,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84pwnable-kr/" rel="tag">从零开始的pwnable.kr</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84pwnable-kr/" style="font-size: 10px;">从零开始的pwnable.kr</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -283,19 +310,19 @@
       <ul>
         
           <li>
-            <a href="/2026/10/16/fd/">(no title)</a>
+            <a href="/2026/10/16/fd/">fd</a>
           </li>
         
           <li>
-            <a href="/2026/10/16/passcode/">(no title)</a>
+            <a href="/2026/10/16/passcode/">passcode</a>
           </li>
         
           <li>
-            <a href="/2026/10/16/collision/">(no title)</a>
+            <a href="/2026/10/16/collision/">collision</a>
           </li>
         
           <li>
-            <a href="/2026/10/16/bof/">(no title)</a>
+            <a href="/2026/10/16/bof/">bof</a>
           </li>
         
           <li>
