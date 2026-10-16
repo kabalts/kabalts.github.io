@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Kabalts&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="从零开始的pwnable.kr（2） collision 相关知识大端序&#x2F;小端序 小端序（Little Endian）：低位字节存放在低地址，高位字节存放在高地址 大端序（Big Endian）：高位字节存放在低地址，低位字节存放在高地址。 现代的绝大多数现代桌面和服务器环境都是采用小端序 在 Linux 系统中一般可以用如下指令判断： 1python -c &quot;import s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kabalts&#39;s Blog">
+<meta property="og:url" content="https://kabalts.github.io/2026/10/16/collision/index.html">
+<meta property="og:site_name" content="Kabalts&#39;s Blog">
+<meta property="og:description" content="从零开始的pwnable.kr（2） collision 相关知识大端序&#x2F;小端序 小端序（Little Endian）：低位字节存放在低地址，高位字节存放在高地址 大端序（Big Endian）：高位字节存放在低地址，低位字节存放在高地址。 现代的绝大多数现代桌面和服务器环境都是采用小端序 在 Linux 系统中一般可以用如下指令判断： 1python -c &quot;import s">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-10-16T06:18:27.363Z">
+<meta property="article:modified_time" content="2026-05-06T13:46:22.518Z">
+<meta property="article:author" content="kabalts">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Kabalts's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Kabalts&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kabalts.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-collision" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/10/16/collision/" class="article-date">
+  <time class="dt-published" datetime="2026-10-16T06:18:27.363Z" itemprop="datePublished">2026-10-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="从零开始的pwnable-kr（2）"><a href="#从零开始的pwnable-kr（2）" class="headerlink" title="从零开始的pwnable.kr（2）"></a>从零开始的pwnable.kr（2）</h1><hr>
+<h2 id="collision"><a href="#collision" class="headerlink" title="collision"></a>collision</h2><hr>
+<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><p><strong>大端序&#x2F;小端序</strong></p>
+<p><strong>小端序</strong>（<strong>Little Endian</strong>）：低位字节存放在低地址，高位字节存放在高地址</p>
+<p><strong>大端序</strong>（<strong>Big Endian</strong>）：高位字节存放在低地址，低位字节存放在高地址。</p>
+<p>现代的绝大多数现代桌面和服务器环境都是采用<strong>小端序</strong></p>
+<p>在 Linux 系统中一般可以用如下指令判断：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c <span class="string">&quot;import sys; print(sys.byteorder)&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>输出为<code>little</code>或<code>big</code></p>
+<p>本题的环境是<strong>小端序</strong></p>
+<p><strong>echo</strong></p>
+<p><code>echo</code>是在 Linux 和 Unix 系统中一个非常基础且常用的命令，它的主要功能是将指定的字符串输出到标准输出（通常是终端屏幕）。</p>
+<p>基本格式为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -[选项] -[字符串]</span><br></pre></td></tr></table></figure>
+
+<p>对于 Bash 中的<code>echo -e &#39;\xHH&#39;</code> 而言，<code>-e</code>用于启用反斜杠转义字符的解释，这里启用后会输出十六进制数 <code>HH</code>对应的 ASCII 字符。</p>
+<p><code>echo $SHELL</code>可以查看当前使用的 SHELL ，常见的 SHELL 有 Bash 、 zsh 等。</p>
+<p>其中 Bash 中的<code>echo</code>默认不解析转义字符，需显式指定<code>-e</code>，而在 zsh 默认解析转义字符</p>
+<p>本题采用的 SHELL 为 Bash</p>
+<hr>
+<h3 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h3><p>根据提示连接到终端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh col@pwnable.kr -p2222</span><br></pre></td></tr></table></figure>
+
+<p>密码为 <code>guest</code><br>连接成功后输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<p>观察到文件目录为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">col col.c flag</span><br></pre></td></tr></table></figure>
+
+<p>从 <code>col</code>入手<br>查看 <code>col</code>的源码 <code>col.c</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> col.c</span><br></pre></td></tr></table></figure>
+
+<p>源码为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> hashcode = <span class="number">0x21DD09EC</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> <span class="title function_">check_password</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* p)</span>&#123;</span><br><span class="line">        <span class="type">int</span>* ip = (<span class="type">int</span>*)p;</span><br><span class="line">        <span class="type">int</span> i;</span><br><span class="line">        <span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">                res += ip[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(argc&lt;<span class="number">2</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;usage : %s [passcode]\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strlen</span>(argv[<span class="number">1</span>]) != <span class="number">20</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;passcode length should be 20 bytes\n&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(hashcode == check_password( argv[<span class="number">1</span>] ))&#123;</span><br><span class="line">                setregid(getegid(), getegid());</span><br><span class="line">                system(<span class="string">&quot;/bin/cat flag&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;wrong passcode.\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析其源码逻辑:</p>
+<p>这是一个简单的密码验证程序，要求输入一个长度为 20 字节的字符串，将其直接按<strong>内存中的字节顺序</strong> 4 字节一组拆分为 5 个整数，求和后与预设的 <code>hashcode = 0x21DD09EC</code> 比较，若相等则输出 <code>flag</code>。</p>
+<p>我们需要构造 5 个 32 位整数，每个整数的 4 个字节均不能为 <code>0x00</code>（否则会被 <code>strlen</code> 截断），且它们的和等于 <code>0x21DD09EC</code>。</p>
+<p>一个比较简单的构造方式是先选取四个相同的整数（整数的 4 个字节均不能为 <code>0x00</code>），比如<code>0x01010101</code>，那么很显然第5个数 &#x3D; <code>0x21DD09EC</code> - <code>0x04040404</code> &#x3D; <code>0x1DD905E8</code>，<code>0x1DD905E8</code>也符合整数的 4 个字节均不为 <code>0x00</code>的条件。</p>
+<p>在<strong>小端序</strong>系统中，整数在内存中的字节顺序是低字节在前。因此 5 个整数的字节序列为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0x01010101 → \x01\x01\x01\x01</span><br><span class="line"></span><br><span class="line">0x01010101 → \x01\x01\x01\x01</span><br><span class="line"></span><br><span class="line">0x01010101 → \x01\x01\x01\x01</span><br><span class="line"></span><br><span class="line">0x01010101 → \x01\x01\x01\x01</span><br><span class="line"></span><br><span class="line">0x1DD905E8 → \xE8\x05\xD9\x1D</span><br></pre></td></tr></table></figure>
+
+<p>最终 20 字节字符串为（十六进制表示）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 E8 05 D9 1D</span><br></pre></td></tr></table></figure>
+
+<p>分析完毕，执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./col $(<span class="built_in">echo</span> -e <span class="string">&#x27;\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\x01\xE8\x05\xD9\x1D&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>当然这题的字符串构造解还有很多，甚至可以利用 ascii 码表巧妙地构建出键盘可直接输入的字符串，比如也可以执行如下指令获取<code>flag</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./col <span class="string">&quot;mmmmmmmmmmmmmmmm8T&#x27;l&quot;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kabalts.github.io/2026/10/16/collision/" data-id="cmvakvh4i0001x4v78q9bhoje" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/10/16/passcode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/10/16/bof/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">October 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/10/16/fd/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/16/passcode/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/16/collision/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/16/bof/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/16/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 kabalts<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

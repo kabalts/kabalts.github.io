@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Kabalts&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="从零开始的pwnable.kr（4） passcode 相关知识 writeup根据提示连接到终端 1ssh passcode@pwnable.kr -p2222  密码为 guest连接成功后输入 1ls -l  观察到文件目录为 12345total 32drwxrwxr-x 2 root passcode      4096 May 12 17:52 a-r--r----- 1 root p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kabalts&#39;s Blog">
+<meta property="og:url" content="https://kabalts.github.io/2026/10/16/passcode/index.html">
+<meta property="og:site_name" content="Kabalts&#39;s Blog">
+<meta property="og:description" content="从零开始的pwnable.kr（4） passcode 相关知识 writeup根据提示连接到终端 1ssh passcode@pwnable.kr -p2222  密码为 guest连接成功后输入 1ls -l  观察到文件目录为 12345total 32drwxrwxr-x 2 root passcode      4096 May 12 17:52 a-r--r----- 1 root p">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-10-16T06:18:27.366Z">
+<meta property="article:modified_time" content="2026-05-14T12:12:55.371Z">
+<meta property="article:author" content="kabalts">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Kabalts's Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Kabalts&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kabalts.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-passcode" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/10/16/passcode/" class="article-date">
+  <time class="dt-published" datetime="2026-10-16T06:18:27.366Z" itemprop="datePublished">2026-10-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="从零开始的pwnable-kr（4）"><a href="#从零开始的pwnable-kr（4）" class="headerlink" title="从零开始的pwnable.kr（4）"></a>从零开始的pwnable.kr（4）</h1><hr>
+<h2 id="passcode"><a href="#passcode" class="headerlink" title="passcode"></a>passcode</h2><hr>
+<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><hr>
+<h3 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h3><p>根据提示连接到终端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh passcode@pwnable.kr -p2222</span><br></pre></td></tr></table></figure>
+
+<p>密码为 <code>guest</code><br>连接成功后输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l</span><br></pre></td></tr></table></figure>
+
+<p>观察到文件目录为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">total 32</span><br><span class="line">drwxrwxr-x 2 root passcode      4096 May 12 17:52 a</span><br><span class="line">-r--r----- 1 root passcode_pwn    42 Apr 19  2025 flag</span><br><span class="line">-r-xr-sr-x 1 root passcode_pwn 16424 May  8 08:55 passcode</span><br><span class="line">-rw-r--r-- 1 root root           894 Apr 29 19:30 passcode.c</span><br></pre></td></tr></table></figure>
+
+<p>这次多了个 <code>a</code>目录，而写 <code>a</code>目录是允许创建 <code>exp.py</code>的</p>
+<p>先查看 <code>passcode.c</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">login</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> passcode1;</span><br><span class="line">        <span class="type">int</span> passcode2;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter passcode1 : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;passcode1);</span><br><span class="line">        fflush(<span class="built_in">stdin</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ha! mommy told me that 32bit is vulnerable to bruteforcing :)</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter passcode2 : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;passcode1);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;checking...\n&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(passcode1==<span class="number">123456</span> &amp;&amp; passcode2==<span class="number">13371337</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Login OK!\n&quot;</span>);</span><br><span class="line">                setregid(getegid(), getegid());</span><br><span class="line">                system(<span class="string">&quot;/bin/cat flag&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Login Failed!\n&quot;</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">welcome</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">char</span> name[<span class="number">100</span>];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter you name : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%100s&quot;</span>, name);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Welcome %s!\n&quot;</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Toddler&#x27;s Secure Login System 1.1 beta.\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">        welcome();</span><br><span class="line">        login();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// something after login...</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Now I can safely trust you that you have credential :)\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有个 <code>fflush(stdin)</code>不太明白，结果 ai 也不明白（悲!）</p>
+<p>在网上看了其他师傅的题解，<code>fflush(stdin)</code>刷新标准输入缓冲区，把输入缓冲区里的东西丢弃</p>
+<p>但是这题的源码似乎改过了，网上看到的题解里并非现在的 <code>scanf(&quot;%d&quot;, &amp;passcode1)</code>和 <code>scanf(&quot;%d&quot;, &amp;passcode1)</code></p>
+<p>而是 <code>scanf(&quot;%d&quot;, passcode1)</code>和 <code>scanf(&quot;%d&quot;, passcode1)</code>，所以现在其实只要按源码让 <code>passcode1==123456</code>且 <code>passcode2==13371337</code>就能输出 <code>flag</code>了</p>
+<p>不理解改的意义是什么，感兴趣的能去看看以前的题解</p>
+<p><del>绝对不是我想水一期</del></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kabalts.github.io/2026/10/16/passcode/" data-id="cmvakvh4j0003x4v7aesqczqc" data-title="" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/10/16/fd/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/10/16/collision/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/10/">October 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/10/16/fd/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/16/passcode/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/16/collision/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/16/bof/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/10/16/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 kabalts<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
