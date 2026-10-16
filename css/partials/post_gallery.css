@@ -47,3 +47,32 @@
     object-fit: cover;
   }
 }
+.cover-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.cover-wall .cover-wall-item {
+  width: calc(25% - 12px);
+}
+.cover-wall .cover-wall-item a {
+  display: block;
+}
+.cover-wall .cover-wall-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+.cover-wall .cover-wall-item .cover-name {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  word-break: break-all;
+}
+@media (max-width: 480px) {
+  .cover-wall .cover-wall-item {
+    width: 100%;
+  }
+}

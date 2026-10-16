@@ -511,6 +511,28 @@ body {
     object-fit: cover;
   }
 }
+.cover-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.cover-wall .cover-wall-item {
+  width: calc(33.333% - 12px);
+}
+.cover-wall .cover-wall-item a {
+  display: block;
+}
+.cover-wall .cover-wall-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+@media (max-width: 480px) {
+  .cover-wall .cover-wall-item {
+    width: 100%;
+  }
+}
 .paginator {
   margin-top: 3.5rem;
 }
