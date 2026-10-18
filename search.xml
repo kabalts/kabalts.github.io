@@ -219,39 +219,6 @@
       </tags>
   </entry>
   <entry>
-    <title>passcode</title>
-    <url>/2026/10/16/passcode/</url>
-    <content><![CDATA[<h1 id="从零开始的pwnable-kr（4）"><a href="#从零开始的pwnable-kr（4）" class="headerlink" title="从零开始的pwnable.kr（4）"></a>从零开始的pwnable.kr（4）</h1><hr>
-<h2 id="passcode"><a href="#passcode" class="headerlink" title="passcode"></a>passcode</h2><hr>
-<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><hr>
-<h3 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h3><p>根据提示连接到终端</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh passcode@pwnable.kr -p2222</span><br></pre></td></tr></table></figure>
-
-<p>密码为 <code>guest</code><br>连接成功后输入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l</span><br></pre></td></tr></table></figure>
-
-<p>观察到文件目录为</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">total 32</span><br><span class="line">drwxrwxr-x 2 root passcode      4096 May 12 17:52 a</span><br><span class="line">-r--r----- 1 root passcode_pwn    42 Apr 19  2025 flag</span><br><span class="line">-r-xr-sr-x 1 root passcode_pwn 16424 May  8 08:55 passcode</span><br><span class="line">-rw-r--r-- 1 root root           894 Apr 29 19:30 passcode.c</span><br></pre></td></tr></table></figure>
-
-<p>这次多了个 <code>a</code>目录，而写 <code>a</code>目录是允许创建 <code>exp.py</code>的</p>
-<p>先查看 <code>passcode.c</code></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">login</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> passcode1;</span><br><span class="line">        <span class="type">int</span> passcode2;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter passcode1 : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;passcode1);</span><br><span class="line">        fflush(<span class="built_in">stdin</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ha! mommy told me that 32bit is vulnerable to bruteforcing :)</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter passcode2 : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;passcode1);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;checking...\n&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(passcode1==<span class="number">123456</span> &amp;&amp; passcode2==<span class="number">13371337</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Login OK!\n&quot;</span>);</span><br><span class="line">                setregid(getegid(), getegid());</span><br><span class="line">                system(<span class="string">&quot;/bin/cat flag&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Login Failed!\n&quot;</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">welcome</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">char</span> name[<span class="number">100</span>];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter you name : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%100s&quot;</span>, name);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Welcome %s!\n&quot;</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Toddler&#x27;s Secure Login System 1.1 beta.\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">        welcome();</span><br><span class="line">        login();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// something after login...</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Now I can safely trust you that you have credential :)\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有个 <code>fflush(stdin)</code>不太明白，结果 ai 也不明白（悲!）</p>
-<p>在网上看了其他师傅的题解，<code>fflush(stdin)</code>刷新标准输入缓冲区，把输入缓冲区里的东西丢弃</p>
-<p>但是这题的源码似乎改过了，网上看到的题解里并非现在的 <code>scanf(&quot;%d&quot;, &amp;passcode1)</code>和 <code>scanf(&quot;%d&quot;, &amp;passcode1)</code></p>
-<p>而是 <code>scanf(&quot;%d&quot;, passcode1)</code>和 <code>scanf(&quot;%d&quot;, passcode1)</code>，所以现在其实只要按源码让 <code>passcode1==123456</code>且 <code>passcode2==13371337</code>就能输出 <code>flag</code>了</p>
-<p>不理解改的意义是什么，感兴趣的能去看看以前的题解</p>
-<p><del>绝对不是我想水一期</del></p>
-]]></content>
-      <categories>
-        <category>gallery</category>
-      </categories>
-      <tags>
-        <tag>从零开始的pwnable.kr</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>fd</title>
     <url>/2026/10/16/fd/</url>
     <content><![CDATA[<h1 id="从零开始的pwnable-kr（1）"><a href="#从零开始的pwnable-kr（1）" class="headerlink" title="从零开始的pwnable.kr（1）"></a>从零开始的pwnable.kr（1）</h1><hr>
@@ -302,13 +269,46 @@
       </tags>
   </entry>
   <entry>
+    <title>passcode</title>
+    <url>/2026/10/16/passcode/</url>
+    <content><![CDATA[<h1 id="从零开始的pwnable-kr（4）"><a href="#从零开始的pwnable-kr（4）" class="headerlink" title="从零开始的pwnable.kr（4）"></a>从零开始的pwnable.kr（4）</h1><hr>
+<h2 id="passcode"><a href="#passcode" class="headerlink" title="passcode"></a>passcode</h2><hr>
+<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><hr>
+<h3 id="writeup"><a href="#writeup" class="headerlink" title="writeup"></a>writeup</h3><p>根据提示连接到终端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh passcode@pwnable.kr -p2222</span><br></pre></td></tr></table></figure>
+
+<p>密码为 <code>guest</code><br>连接成功后输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l</span><br></pre></td></tr></table></figure>
+
+<p>观察到文件目录为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">total 32</span><br><span class="line">drwxrwxr-x 2 root passcode      4096 May 12 17:52 a</span><br><span class="line">-r--r----- 1 root passcode_pwn    42 Apr 19  2025 flag</span><br><span class="line">-r-xr-sr-x 1 root passcode_pwn 16424 May  8 08:55 passcode</span><br><span class="line">-rw-r--r-- 1 root root           894 Apr 29 19:30 passcode.c</span><br></pre></td></tr></table></figure>
+
+<p>这次多了个 <code>a</code>目录，而写 <code>a</code>目录是允许创建 <code>exp.py</code>的</p>
+<p>先查看 <code>passcode.c</code></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">login</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> passcode1;</span><br><span class="line">        <span class="type">int</span> passcode2;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter passcode1 : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;passcode1);</span><br><span class="line">        fflush(<span class="built_in">stdin</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ha! mommy told me that 32bit is vulnerable to bruteforcing :)</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter passcode2 : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;passcode1);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;checking...\n&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(passcode1==<span class="number">123456</span> &amp;&amp; passcode2==<span class="number">13371337</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Login OK!\n&quot;</span>);</span><br><span class="line">                setregid(getegid(), getegid());</span><br><span class="line">                system(<span class="string">&quot;/bin/cat flag&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;Login Failed!\n&quot;</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">welcome</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">char</span> name[<span class="number">100</span>];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;enter you name : &quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%100s&quot;</span>, name);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Welcome %s!\n&quot;</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Toddler&#x27;s Secure Login System 1.1 beta.\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">        welcome();</span><br><span class="line">        login();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// something after login...</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Now I can safely trust you that you have credential :)\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有个 <code>fflush(stdin)</code>不太明白，结果 ai 也不明白（悲!）</p>
+<p>在网上看了其他师傅的题解，<code>fflush(stdin)</code>刷新标准输入缓冲区，把输入缓冲区里的东西丢弃</p>
+<p>但是这题的源码似乎改过了，网上看到的题解里并非现在的 <code>scanf(&quot;%d&quot;, &amp;passcode1)</code>和 <code>scanf(&quot;%d&quot;, &amp;passcode1)</code></p>
+<p>而是 <code>scanf(&quot;%d&quot;, passcode1)</code>和 <code>scanf(&quot;%d&quot;, passcode1)</code>，所以现在其实只要按源码让 <code>passcode1==123456</code>且 <code>passcode2==13371337</code>就能输出 <code>flag</code>了</p>
+<p>不理解改的意义是什么，感兴趣的能去看看以前的题解</p>
+<p><del>绝对不是我想水一期</del></p>
+]]></content>
+      <categories>
+        <category>gallery</category>
+      </categories>
+      <tags>
+        <tag>从零开始的pwnable.kr</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>covers</title>
     <url>/covers/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tags/index.html</url>
+    <title>tag</title>
+    <url>/tag/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
