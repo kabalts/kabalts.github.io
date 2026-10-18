@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CMC-1-NM-Prelim</title>
-    <url>/2026/10/18/CMC-1-NM-Prelim/</url>
-    <content><![CDATA[<iframe src="/pdfjs/web/viewer.html?file=/files/CMC-1-NM-Prelim.pdf" style="width:100%;height:800px;"></iframe>]]></content>
-      <categories>
-        <category>gallery</category>
-      </categories>
-      <tags>
-        <tag>CMC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>bof</title>
     <url>/2026/10/16/bof/</url>
     <content><![CDATA[<h1 id="从零开始的pwnable-kr（3）"><a href="#从零开始的pwnable-kr（3）" class="headerlink" title="从零开始的pwnable.kr（3）"></a>从零开始的pwnable.kr（3）</h1><hr>
@@ -154,6 +143,17 @@
       </categories>
       <tags>
         <tag>从零开始的pwnable.kr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CMC-1-NM-Prelim</title>
+    <url>/2026/10/18/CMC-1-NM-Prelim/</url>
+    <content><![CDATA[<iframe src="/pdfjs/web/viewer.html?file=/files/CMC-1-NM-Prelim.pdf" style="width:100%;height:800px;"></iframe>]]></content>
+      <categories>
+        <category>gallery</category>
+      </categories>
+      <tags>
+        <tag>CMC</tag>
       </tags>
   </entry>
   <entry>
@@ -302,13 +302,13 @@
       </tags>
   </entry>
   <entry>
-    <title>covers</title>
-    <url>/covers/index.html</url>
+    <title>tag</title>
+    <url>/tag/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>tag</title>
-    <url>/tag/index.html</url>
+    <title>covers</title>
+    <url>/covers/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
