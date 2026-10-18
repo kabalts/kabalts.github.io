@@ -302,13 +302,13 @@
       </tags>
   </entry>
   <entry>
-    <title>tags</title>
-    <url>/tag/index.html</url>
+    <title>covers</title>
+    <url>/covers/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>covers</title>
-    <url>/covers/index.html</url>
+    <title>tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
