@@ -148,7 +148,9 @@
   <entry>
     <title>CMC-1-NM-Prelim</title>
     <url>/2026/10/18/CMC-1-NM-Prelim/</url>
-    <content><![CDATA[<iframe src="/pdfjs/web/viewer.html?file=/files/CMC-1-NM-Prelim.pdf" style="width:100%;height:800px;"></iframe>]]></content>
+    <content><![CDATA[<iframe src="/pdfjs/web/viewer.html?file=/files/CMC-1-NM-Prelim.pdf" style="width:100%;height:800px;"></iframe>
+
+<iframe src="/pdfjs/web/viewer.html?file=/files/CMC-1-NM-Prelim-Solution.pdf" style="width:100%;height:800px;"></iframe>]]></content>
       <categories>
         <category>gallery</category>
       </categories>
