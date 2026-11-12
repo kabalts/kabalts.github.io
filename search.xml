@@ -362,6 +362,24 @@
       </tags>
   </entry>
   <entry>
+    <title>CMC-6-NM-Prelim</title>
+    <url>/2026/11/12/CMC-6-NM-Prelim/</url>
+    <content><![CDATA[<h1 id="第六届全国大学生数学竞赛非数学类初赛题解"><a href="#第六届全国大学生数学竞赛非数学类初赛题解" class="headerlink" title="第六届全国大学生数学竞赛非数学类初赛题解"></a>第六届全国大学生数学竞赛非数学类初赛题解</h1><p>试题内容来源于网络，并由我使用 Latex 重新整理排版</p>
+<p>题解仅为个人使用的方法，如有纰漏请联系我</p>
+<p>这届难度较低</p>
+<p>第三题将<code>f(1)</code>和<code>f(0)</code>在<code>x</code>处泰勒展开非常巧妙</p>
+<p>第五题需想象函数图像的变化和中值点随<code>n</code>的左右移动，再巧妙利用放缩和夹逼求解</p>
+<p>第六题的严谨证明需要注意细节</p>
+<iframe src="/pdfjs/web/viewer.html?file=/files/CMC-6-NM-Prelim-Solution.pdf" style="width:100%;height:800px;"></iframe>
+]]></content>
+      <categories>
+        <category>gallery</category>
+      </categories>
+      <tags>
+        <tag>CMC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>covers</title>
     <url>/covers/index.html</url>
     <content><![CDATA[]]></content>
